@@ -83,6 +83,20 @@
       {"field": "Total_Launches", "type": "quantitative", "title": "Number of Launches"}
     ]
   }
+  },
+  {
+    "data": {"url": "https://raw.githubusercontent.com/KobeyRaff/FIT3179Vis2/main/processed_data_with_coordinates.csv"},
+    "mark": {"type": "point", "filled": true, "stroke": "#b60b99"},
+    
+    "encoding": {
+      "longitude": {"field": "Longitude", "type": "quantitative"},
+      "latitude": {"field": "Latitude", "type": "quantitative"},
+      "size": {"value": 5},
+      "tooltip": [
+        {"field": "Location", "type": "nominal"}
+      ]
+    }
+    
   }
   ],
   "resolve": {
