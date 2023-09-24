@@ -1,5 +1,5 @@
 body {
-    background-color:rgb(49, 49, 49);
+    background-color:rgb(31, 31, 31);
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -10,17 +10,16 @@ body {
     padding: 0;
     overflow-x: hidden;
 }
-* {
-background-color:rgb(49, 49, 49);
-}
 
 #vis {
     border-radius: 25px;
     background: #1b1b1b;
     padding: 20px;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
     margin: auto;
-    width: 90%;
-    height: 90%;
-
+    margin-top: 25px;
 
 }
