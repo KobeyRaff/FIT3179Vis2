@@ -1,0 +1,55 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Change in Launches per Organisation over Time",
+      "fontSize": 24,
+      "anchor": "middle",
+      "fontWeight": "bold",
+      "color": "#dfdfdf"
+    },
+    "data": {"url" : "https://raw.githubusercontent.com/KobeyRaff/FIT3179Vis2/main/processed_data.csv"},
+    "transform": [
+        {
+           "aggregate": [
+              {
+                 "op": "count",
+                 "field": "Organisation",
+                 "as": "Launches"
+              }
+           ],
+           "groupby" : ["Organisation", "Year"]
+        },
+        {"filter": "datum.Launches > 5"},
+        {"filter" : {"field": "Year", "oneOf": ["1967", "1997", "2018", "2019"]}}
+
+    ],
+    "facet" : {
+        "column" : {"field" : "Year", "type" : "nominal", "header" : {"labelFontSize" : 16, "labelColor" : "#dfdfdf", "titleColor" : "#dfdfdf", "titleFontSize" : 18}}
+    },
+    "spec" : {
+        "mark": {"type": "arc", "innerRadius": 50},
+        "encoding": {
+          "theta": {"field": "Launches", "type": "quantitative"},
+          "color": {"field": "Organisation", "type": "nominal", "scale": {"scheme": "category20b"}, "legend": {
+            "titleFontSize": 16,
+            "labelFontSize": 14,
+            "gradientLength": 300,
+            "titleColor": "#dfdfdf",
+            "labelColor": "#dfdfdf"
+          }},
+          "tooltip": [
+            {"field": "Organisation", "type": "nominal"},
+            {"field": "Launches", "type": "quantitative"},
+            {"field": "Year", "type": "nominal"}
+          ]
+        }
+    },
+    "config": {
+      "background" : "#1b1b1b",
+      "axis": {
+          "labelColor": "#adadad",
+          "titleColor": "#adadad",
+          "gridColor": "#636363"
+      }
+    }
+  }

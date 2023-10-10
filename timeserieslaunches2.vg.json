@@ -1,0 +1,59 @@
+{
+    "$schema" : "https://vega.github.io/schema/vega-lite/v5.json",
+    "width" : 800, "height" : 400,
+    "title": {
+        "text": "Launches Over Time",
+        "fontSize": 16,
+        "anchor": "middle",
+        "fontWeight": "bold",
+        "color": "#dfdfdf"
+      },
+    "data" : { "url" : "https://raw.githubusercontent.com/KobeyRaff/FIT3179Vis2/main/processed_data.csv" },
+    "transform": [
+        {
+           "aggregate": [
+              {
+                 "op": "count",
+                 "field": "Year",
+                 "as": "launches"
+              }
+           ],
+           "groupby" : ["Year"]
+        }
+
+    ],
+    "mark" : "line",
+    "encoding" : {
+        "x" : { 
+            "field" : "Year", 
+            "type" : "temporal", 
+            "timeUnit" : "year",
+            "axis" : {
+                "title" : "Year"
+            }
+        },
+        "y" : { 
+            "field" : "launches", 
+            "type" : "quantitative",
+            "axis" : {
+                "title" : "Number of Launches"
+            }
+    
+        },
+        "color" : {
+            "value" : "#ffa321"
+        },
+        "strokeWidth": {
+            "value": 5
+          }
+    },
+    
+    "config": {
+        "background" : "#1b1b1b",
+        "axis": {
+            "labelColor": "#adadad",
+            "titleColor": "#adadad"
+        }
+      }
+
+}
