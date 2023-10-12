@@ -5,12 +5,60 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1 style="text-align: center;">Homework Week 9</h1>
-  <div id="vis"/>
+  <div id="space">
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+  </div>
+
+  <div id = "title"><h1 style="text-align: center;">Reaching for the Stars: The Resurging Space Race</h1></div>
+  <div class="parent-box">
+  <div class="visualization-box stacked">
+      <div class="item text-item" >
+        <h3>The Rocket Launch Revolution: From Sputnik Onward</h3>
+        <div>Since the launch of Sputnik in 1957, access to space has grown rapidly, reaching over 100 launches a year within 2 decades.
+        The cold war became a major driving force for space exploration, with the United States and the Soviet Union competing to be the first to reach the moon in the late 60s.
+        With the cold war winding up in the late 80s and early 90s and the collapse of the Soviet Union, the number of launches dropped, with this trend continuing into the 2000s.
+        However, in the last decade, the number of launches has been increasing, with the advent of commericial space companies such as SpaceX and Blue Origin leading a second space race.
+        
+        </div>
+      </div>
+        <div class="item">
+          <div id="vis1"></div>
+        </div>
+      
+  </div>
+  </div>
+  <div class="parent-box">
+    <div class="visualization-box side-by-side">
+      <div class="item"><div id="vis2"></div></div>
+      <div class="item text-item">
+          <h3>A global phenomenom</h3>
+          <p>Whilst the USA and Russia have long lead the way in Space Launches, they're not alone in their domination of Space. Many countries around the world have been home to a space launch, from India to New Zealand, Kenya to Australia. The USA and Russia's lead is still unsurpassed however new contenders in the space arena are leaving their mark</p>
+      </div>
+    </div>
+  </div>
+  <div class="parent-box">
+    <div class="visualization-box side-by-side">
+      <div class="item text-item">
+        <h3>New Powers Emerging</h3>
+        <p>Whilst the legacy space powers still maintain a strong presence, they have quickly been eclipsed by the up and comers, <mark class="China">China</mark> and <mark class="India">India</mark></p>
+    </div>
+      <div class="item"><div id="vis3"></div></div>
+    </div>
+  </div>
+
   <script>
-    vegaEmbed("#vis", "/mainmap.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    vegaEmbed("#vis1", "timeserieslaunches2.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    vegaEmbed("#vis2", "mainmap.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    vegaEmbed("#vis3", "timeserieslaunches.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
   </script>
 </body>
 </html>

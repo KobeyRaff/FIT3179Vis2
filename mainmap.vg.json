@@ -9,6 +9,7 @@
     },
     "width": 1000,
     "height": 600,
+    
     "data": {
       "url": "https://raw.githubusercontent.com/KobeyRaff/FIT3179Vis2/main/ne_110m.topojson",
         "format": {
@@ -54,8 +55,8 @@
         "type": "quantitative",
         "title": "Number of Launches",
         "scale": {
-          "domain": [0,1395]
-          
+          "domain": [0,1395],
+          "scheme": "goldorange"
         },
         "legend": {
           "titleFontSize": 16,
@@ -74,12 +75,12 @@
     },
     {
       "data": {"url": "https://raw.githubusercontent.com/KobeyRaff/FIT3179Vis2/main/processed_data_with_coordinates.csv"},
-      "mark": {"type": "point", "filled": true, "stroke": "#b60b99"},
+      "mark": {"type": "point", "filled": false, "stroke": "#056ce2"},
       
       "encoding": {
         "longitude": {"field": "Longitude", "type": "quantitative"},
         "latitude": {"field": "Latitude", "type": "quantitative"},
-        "size": {"value": 5},
+        "size": {"value": 20},
         "tooltip": [
           {"field": "Location", "type": "nominal"}
         ]

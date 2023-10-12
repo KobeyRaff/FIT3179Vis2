@@ -9,16 +9,17 @@
         "color": "#dfdfdf"
       },
     "data" : { "url" : "https://raw.githubusercontent.com/KobeyRaff/FIT3179Vis2/main/processed_data.csv" },
+    
     "transform": [
         { "filter": 
-            {"field": "Country", "oneOf": ["China", "Russia", "USA", "India", "Japan", "France"] }
+            {"field": "Country", "oneOf": ["China", "Russia", "USA", "India", "Japan", "France"]}
         },
         {
            "aggregate": [
               {
                  "op": "count",
                  "field": "Year",
-                 "as": "launches"
+                 "as": "Launches"
               }
            ],
             "groupby": [
@@ -44,7 +45,7 @@
               }
         },
         "y" : { 
-            "field" : "launches", 
+            "field" : "Launches", 
             "type" : "quantitative",
             "axis" : {
                 "labelAngle": 0,
@@ -69,7 +70,12 @@
                 "titleColor": "#dfdfdf",
                 "labelColor": "#dfdfdf"
               }
-        }
+        }, 
+        "tooltip" : [
+            { "field" : "Country", "type" : "nominal" },
+            { "field" : "Year", "type" : "temporal", "timeUnit" : "year", "title" : "Year" },
+            { "field" : "Launches", "type" : "quantitative" }
+        ]
         
     },
     "config": {
