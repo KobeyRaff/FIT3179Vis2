@@ -1,0 +1,124 @@
+body {
+    background-color:rgb(31, 31, 31);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #ffffff;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    text-wrap: balance;
+}
+#space, .stars {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+mark.China {
+    color: #ffa321;
+    font-weight: bold;
+    background-color: transparent;
+}
+mark.India {
+    color: #e20051;
+    font-weight: bold;
+    background-color: transparent;
+}
+.stars {
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    z-index: -1;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); /* Add a subtle outer glow to stars */
+}
+#title {
+    border-radius: 25px;
+    background: #1b1b1b;
+    padding: 20px;
+    width: 45%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 25px;
+    font-family: 'Orbitron', sans-serif;
+}
+h3 {
+    font-family: 'Orbitron', sans-serif;
+}
+.parent-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.second, .second ~ div {
+    width:100%;
+}
+/* Box style for enclosing charts or text */
+.visualization-box {
+    border-radius: 10px; /* Adjust the border radius as needed */
+    background: #1b1b1b; /* Dark background color */
+    padding: 20px;
+    min-width: 40%; /* Adjust the width as needed for visualization boxes */
+    margin: 10px auto; /* Center the visualization box horizontally */
+    box-sizing: border-box; /* Include padding and border in the box's total width */
+    display: inline-flex; /* Use flexbox */
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+
+    /* Add any specific styles for visualizations here */
+}
+.side-by-side {
+    display: inline-flex; /* Use flexbox to arrange items side by side */
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 10px;
+    width: auto;
+}
+.stacked {
+    flex-direction: column; /* Stack items vertically */
+}
+/* Individual item style (customize as needed) */
+.item {
+    padding: 10px; /* Adjust padding as needed */
+    background: #1b1b1b; /* Background color for items */
+    color: #fff; /* Text color for items */
+    border-radius: 10px;
+}
+.text-item {
+    padding: 10px; /* Adjust padding as needed */
+    background: #1b1b1b; /* Background color for items */
+    color: #fff; /* Text color for items */
+    text-align: center; /* Center text content within the text box */
+    max-width: 50ch;
+    font-size: 20px;
+}
+
+.text-box {
+    border-radius: 10px; /* Adjust the border radius as needed */
+    background: #1b1b1b; /* Dark background color */
+    padding: 20px;
+    width: auto; /* Adjust the width as needed for text boxes */
+    max-width: 30%;
+    margin: 10px auto; /* Center the text box horizontally */
+    box-sizing: border-box; /* Include padding and border in the box's total width */
+    color: #ffffff; /* Text color for content inside the text box */
+    text-align: center; /* Center text content within the text box */
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}

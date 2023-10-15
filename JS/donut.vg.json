@@ -30,7 +30,7 @@
         "mark": {"type": "arc", "innerRadius": 50},
         "encoding": {
           "theta": {"field": "Launches", "type": "quantitative"},
-          "color": {"field": "Organisation", "type": "nominal", "scale": {"scheme": "category20b"}, "legend": {
+          "color": {"field": "Organisation", "type": "nominal", "scale": {"scheme": "tableau20"}, "legend": {
             "titleFontSize": 16,
             "labelFontSize": 14,
             "gradientLength": 300,

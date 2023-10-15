@@ -29,7 +29,7 @@
         }
 
     ],
-    "mark" : "bar",
+    "mark" : "area",
     "encoding" : {
         "x" : { 
             "field" : "Year", 

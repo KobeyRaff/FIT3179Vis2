@@ -1,0 +1,103 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 400,
+    "title": {
+        "text": "Top 10 Most Common Rocket Types Launched",
+        "fontSize": 24,
+        "anchor": "middle",
+        "fontWeight": "bold",
+        "color": "#dfdfdf"
+    },
+    "data": {"url": "https://raw.githubusercontent.com/KobeyRaff/FIT3179Vis2/main/processed_data.csv"},
+    "params": [
+        {
+            "name": "status_select",
+            "value": "ActiveOnly",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "ActiveOnly",
+                    "All"
+                ],
+                "name": "Rocket Status"
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "(datum.Rocket_Status === 'StatusActive' && status_select === 'ActiveOnly') || (status_select === 'All' && (datum.Rocket_Status === 'StatusActive' || datum.Rocket_Status === 'StatusRetired'))"
+          
+        },
+        {
+            "aggregate": [
+                {
+                    "op": "count",
+                    "as": "count"
+                }
+            ],
+            "groupby": ["Rocket Name/Model", "Rocket_Status"]
+        },
+
+        {
+            "window": [{"op": "rank", "as": "rank"}],
+            "sort": [{"field": "count", "order": "descending"}]
+        },
+        {
+            "filter": "datum.rank <= 10"
+        }
+    ],
+    "mark": "bar",
+    "encoding": {
+        "x": {
+            "field": "Rocket Name/Model",
+            "type": "nominal",
+            "axis": {
+                "labelAngle": -45,
+                "labelFontSize": 14,
+                "titleFontSize": 16,
+                "title": "Rocket Name/Model",
+                "titleColor": "#dfdfdf",
+                "labelColor": "#dfdfdf"
+            }
+        },
+        "y": {
+            "field": "count",
+            "type": "quantitative",
+            "axis": {
+                "labelFontSize": 14,
+                "titleFontSize": 16,
+                "title": "Number of Launches",
+                "titleColor": "#dfdfdf",
+                "labelColor": "#dfdfdf"
+            }
+        },
+        "color": {
+            "field": "Rocket_Status",
+            "type": "nominal",
+            "scale": {
+                "domain" : ["StatusActive", "StatusRetired"],
+                "range": ["#5bc273", "#b02828"]
+            },
+            "legend": {
+                "titleFontSize": 16,
+                "labelFontSize": 14,
+                "titleColor": "#dfdfdf",
+                "labelColor": "#dfdfdf",
+                "title": "Rocket Status"
+            }
+        },
+        "tooltip": [
+            {"field": "Rocket Name/Model", "type": "nominal"},
+            {"field": "count", "type": "quantitative"}
+        ]
+    },
+    "config": {
+        "background": "#1b1b1b",
+        "axis": {
+            "labelColor": "#adadad",
+            "titleColor": "#adadad",
+            "gridColor": "#636363"
+        }
+    }
+}

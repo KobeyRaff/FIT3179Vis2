@@ -1,0 +1,73 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 400,
+    "title": {
+        "text": "Ratio of Launch Success and Failure",
+        "fontSize": 24,
+        "anchor": "middle",
+        "fontWeight": "bold",
+        "color": "#dfdfdf"
+    },
+    "data": {"url": "https://raw.githubusercontent.com/KobeyRaff/FIT3179Vis2/main/processed_data.csv"},
+    "params": [
+        {"name": "YearSelect", "value": "2020", "bind" : {"input": "range", "min": 1957, "max": 2020, "step": 1}}
+    ],
+    "transform": [
+        {
+            "filter": "datum.Year == YearSelect"
+        },
+        {
+            "aggregate": [{"op": "count", "as": "count"}],
+            "groupby": ["Year","Mission_Status"]
+        },
+        {
+            "sort": [{"field": "Year"}],
+            "window": [
+              {
+                "op": "sum",
+                "field": "count",
+                "as": "cumulative_count"
+              }
+            ],
+            "groupby": ["Mission_Status"],
+            "frame": [null, 0]
+          },
+          {
+            "calculate": "datum.displayMode === 'Accumulative' ? datum.cumulative_count : datum.count",
+            "as": "final_count"
+          }
+
+          
+    ],
+    "mark":{"type": "arc", "innerRadius": 50},
+    "encoding": {
+        "theta": {"field": "final_count", "type": "quantitative"},
+        "color": {"field": "Mission_Status", "type": "nominal", "legend": {
+            "titleFontSize": 16,
+            "labelFontSize": 14,
+            "title": "Mission Status",
+            "titleColor": "#dfdfdf",
+            "labelColor": "#dfdfdf"
+        },
+        "scale": {
+            "domain": ["Success", "Failure", "Partial Failure", "Prelaunch Failure", "Launch Failure"],
+            "range": ["#5bc273", "#b02828", "#b05c28", "#a928b0", "#6c28b0"]
+        }
+        },
+        "tooltip": [
+            {"field": "Mission_Status", "type": "nominal", "title": "Mission Status"},
+            {"field": "final_count", "type": "quantitative", "title": "Count"}
+        ]
+    },
+    "config": {
+        "background": "#1e1e1e",
+        "axis": {
+            "labelColor": "#dfdfdf",
+            "titleColor": "#dfdfdf"
+        },
+        "title": {
+            "color": "#dfdfdf"
+        }
+    }
+}
