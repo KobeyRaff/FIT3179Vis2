@@ -1,4 +1,4 @@
-Flight No.,Date,Time (UTC),Launch site,Payload,Orbit,Customer,Launchoutcome,Boosterlanding," Version,Booster",Payload mass,CleanMass
+Flight No.,Date,Time (UTC),Launch site,Payload,Orbit,Customer,Launchoutcome,Boosterlanding,VersionBooster,Payload mass,CleanMass
 1,4-Jun-10,18:45,"CCSFS,SLC-40",Dragon Spacecraft Qualification Unit,LEO,SpaceX,Success,Failure(parachute),F9 v1.0 B0003,No payload (excl. Dragon Mass),
 2,8-Dec-10,15:43,"CCSFS,SLC-40",SpaceX COTS Demo Flight 1(Dragon C101),LEO,SpaceX,Success,Failure(parachute),F9 v1.0 B0004,Unknown (excl. Dragon Mass),
 3,22-May-12,7:44,"CCSFS,SLC-40",SpaceX COTS Demo Flight 2(Dragon C102),LEO,NASA (COTS),Success,No attempt,F9 v1.0 B0005,"525kg (1,157lb) (excl. Dragon mass)",525.0
