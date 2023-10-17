@@ -8,63 +8,10 @@
         "fontWeight": "bold",
         "color": "#dfdfdf"
       },
-      "params": [
-        {
-          "name": "F91",
-            "value": true,
-            "bind": {
-                "input": "checkbox",
-                "name": "Falcon 9 V1.0"
-            }
-        },
-        {
-          "name": "F911",
-          "value": true,
-            "bind": {
-                "input": "checkbox",
-                "name": "Falcon 9 V1.1"
-            }
-        },
-        {
-          "name": "F9FT",
-          "value": true,
-            "bind": {
-                "input": "checkbox",
-                "name": "Falcon 9 FT"
-            }
-        },
-        {
-          "name": "F9B4",
-          "value": true,
-            "bind": {
-                "input": "checkbox",
-                "name": "Falcon 9 B4"
-            }
-        },
-        {
-          "name": "F9B5",
-          "value": true,
-            "bind": {
-                "input": "checkbox",
-                "name": "Falcon 9 B5"
-            }
-        },
-        {
-          "name": "heavy",
-          "value": true,
-            "bind": {
-                "input": "checkbox",
-                "name": "Falcon Heavy"
-            }
-        }
-      ],
     "data": {"url": "https://raw.githubusercontent.com/KobeyRaff/FIT3179Vis2/FinalAssignment/Data/cleaned_dataset.csv"},
     "transform": [
         {
             "filter" : "datum.CleanMass > 0"
-        },
-        {
-          "filter": "datum.F91 && indexof(datum.Version,Booster, 'F9 V1.0') >= 0"
         }
     ],
     "mark": {"type": "circle", "tooltip": true, "size": 100, "opacity": 1},
