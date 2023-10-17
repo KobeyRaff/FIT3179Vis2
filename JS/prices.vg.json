@@ -1,0 +1,72 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width" : 400, "height" : 400,
+    "title": {
+      "text": "Average Launch Price of all Space Missions by Year",
+      "fontSize": 24,
+      "anchor": "middle",
+      "fontWeight": "bold",
+      "color": "#dfdfdf"
+    },
+    "data": {"url" : "https://raw.githubusercontent.com/KobeyRaff/FIT3179Vis2/main/processed_data.csv"},
+    "transform": [
+        {
+            "aggregate": [
+                {
+                    "op": "mean",
+                    "field": "Price", 
+                    "as": "average_price"
+                }
+            ],
+            "groupby": ["Year"]
+        },
+        {"filter": "datum.Year >= 1980"}
+    ],
+    "layer" : [
+        {
+        "mark": {"type" : "area", "color" : "#ffa321", "interpolate" : "monotone"},
+        "encoding": {
+        "x": {
+            "field": "Year",
+            "type": "quantitative",
+            "timeUnit": "year",
+            "scale": {"domain": [1981, 2020]},
+            "axis": {
+                "labelAngle": -15,
+                "labelFontSize": 14,
+                "titleFontSize": 16,
+                "title": "Year",
+                "titleColor": "#dfdfdf",
+                "labelColor": "#dfdfdf"
+            }
+        },
+        "y": {
+            "field": "average_price",
+            "type": "quantitative",
+            "axis": {
+                "labelAngle": 0,
+                "labelFontSize": 14,
+                "titleFontSize": 16,
+                "title": "Average Launch Price (Millions USD)",
+                "titleColor": "#dfdfdf",
+                "labelColor": "#dfdfdf"
+            }
+        },
+        "tooltip": [
+            {"field": "Year", "type": "temporal", "timeUnit": "year", "title": "Year"},
+            {"field": "average_price", "type": "quantitative", "format": ".2f", "title": "Average Launch Price (Millions USD)"}
+        ]
+    }
+    }
+    ],
+    
+    "config": {
+        "background": "#1b1b1b",
+        "axis": {
+            "labelColor": "#adadad",
+            "titleColor": "#adadad",
+            "gridColor": "#636363"
+        }
+    }
+
+}

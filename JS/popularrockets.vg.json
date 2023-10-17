@@ -84,7 +84,8 @@
                 "labelFontSize": 14,
                 "titleColor": "#dfdfdf",
                 "labelColor": "#dfdfdf",
-                "title": "Rocket Status"
+                "title": "Rocket Status",
+                "labelExpr": "datum.value === 'StatusActive' ? 'Active' : 'Retired'"
             }
         },
         "tooltip": [

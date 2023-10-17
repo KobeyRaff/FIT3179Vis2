@@ -22,7 +22,7 @@
   <div class="parent-box">
   <div class="visualization-box stacked">
       <div class="item text-item" >
-        <h3>The Rocket Launch Revolution: From Sputnik Onward</h3>
+        <h3>The Rocket Launch Revolution: From Sputnik Upward</h3>
         <div>Since the launch of Sputnik in 1957, access to space has grown rapidly, reaching over 100 launches a year within 2 decades.
         The cold war became a major driving force for space exploration, with the United States and the Soviet Union competing to be the first to reach the moon in the late 60s.
         With the cold war winding up in the late 80s and early 90s and the collapse of the Soviet Union, the number of launches dropped, with this trend continuing into the 2000s.
@@ -34,6 +34,9 @@
           <div id="vis1"></div>
         </div>
       
+  </div>
+  <div class="container">
+    <img src="CSS/sputnik.png" alt="Sputnik" class="satellite">
   </div>
   </div>
   <div class="parent-box">
@@ -54,11 +57,32 @@
       <div class="item"><div id="vis3"></div></div>
     </div>
   </div>
-
+  <div class="parent-box">
+    <div class="visualization-box side-by-side">
+      <div class="item"><div id="vis4"></div></div>
+      <div class="item text-item">
+        <h3>Success: Nominal</h3>
+        <p>We've come a long way in terms of space travel, with the reliability of our rockets increasing dramatically since 1957. In 1959, we had more failures than successes, however over the last 40 years, the success rate has grown dramatically whilst simultaneously the price of rocket launches has decreased by an order of magnitude. Nowadays, the sky is no longer the limit.</p>
+      </div>
+      <div class="item"><div id="vis5"></div></div>
+    </div>
+  </div>
+  <div class="parent-box">
+    <div class="visualization-box side-by-side">
+      <div class="item"><div id="vis6"></div></div>
+      <div class="item text-item">
+        <h3>Modern Day Workhorses</h3>
+        <p>When looking at the most launched rockets over time, you see a stark delimination when comparing currently active rockets with retired rockets. When only looking at the most popular active rockets, there's a broad spread from multiple different countries including China, Russia, America and Europe. Looking at the most popular rockets of all time however shows just how dominant Russia was in the Space Race. All historically popular rockets bar the Ariane 5, the only active rocket to make the list, are Russian made, with the Cosmos-3M rocket launching nearly 450 times!  </p>
+      </div>
+    </div>
+  </div>
   <script>
     vegaEmbed("#vis1", "JS/timeserieslaunches2.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
     vegaEmbed("#vis2", "JS/mainmap.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
     vegaEmbed("#vis3", "JS/timeserieslaunches.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    vegaEmbed("#vis4", "JS/prices.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    vegaEmbed("#vis5", "JS/success.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    vegaEmbed("#vis6", "JS/popularrockets.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
   </script>
 </body>
 </html>

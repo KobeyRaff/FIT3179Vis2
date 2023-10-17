@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600,
+    "width": 400,
     "height": 400,
     "title": {
         "text": "Ratio of Launch Success and Failure",
@@ -11,7 +11,7 @@
     },
     "data": {"url": "https://raw.githubusercontent.com/KobeyRaff/FIT3179Vis2/main/processed_data.csv"},
     "params": [
-        {"name": "YearSelect", "value": "2020", "bind" : {"input": "range", "min": 1957, "max": 2020, "step": 1}}
+        {"name": "YearSelect", "value": "2020", "bind" : {"input": "range", "min": 1957, "max": 2020, "step": 1, "name": "Year Select"}}
     ],
     "transform": [
         {
@@ -61,7 +61,7 @@
         ]
     },
     "config": {
-        "background": "#1e1e1e",
+        "background": "#1b1b1b",
         "axis": {
             "labelColor": "#dfdfdf",
             "titleColor": "#dfdfdf"

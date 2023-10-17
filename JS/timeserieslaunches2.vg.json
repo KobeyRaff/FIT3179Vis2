@@ -3,7 +3,7 @@
     "width" : 800, "height" : 400,
     "title": {
         "text": "Launches Over Time",
-        "fontSize": 16,
+        "fontSize": 24,
         "anchor": "middle",
         "fontWeight": "bold",
         "color": "#dfdfdf"
@@ -29,14 +29,21 @@
             "type" : "temporal", 
             "timeUnit" : "year",
             "axis" : {
-                "title" : "Year"
+                "title" : "Year",
+                "labelAngle": 0,
+                "labelFontSize": 14,
+                "titleFontSize": 16
             }
         },
         "y" : { 
             "field" : "launches", 
             "type" : "quantitative",
             "axis" : {
-                "title" : "Number of Launches"
+                "title" : "Number of Launches",
+                "labelAngle": 0,
+                "labelFontSize": 14,
+                "titleFontSize": 16
+            
             }
     
         },
@@ -51,12 +58,25 @@
             {"field" : "launches", "type" : "quantitative", "title" : "Number of Launches"}
           ]
     },
+    "selection": {
+        "zoom": {
+          "type": "interval",
+          "bind": "scales",
+          "on": "[mousedown[!event.shiftKey], mouseup] > mousemove",
+          "translate": "[mousedown[!event.shiftKey], mouseup] > mousemove!"
+        },
+        "select": {
+          "type": "interval",
+          "on": "[mousedown[event.shiftKey], mouseup] > mousemove",
+          "translate": "[mousedown[event.shiftKey], mouseup] > mousemove!"
+        }
+      },
     
     "config": {
         "background" : "#1b1b1b",
         "axis": {
-            "labelColor": "#adadad",
-            "titleColor": "#adadad"
+            "labelColor": "#dfdfdf",
+            "titleColor": "#dfdfdf"
         }
       }
 

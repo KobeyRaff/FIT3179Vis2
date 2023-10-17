@@ -122,3 +122,18 @@ h3 {
     clear: both;
     display: table;
 }
+.container {
+   position: relative;
+   padding-left: 100px;
+    
+}
+
+.satellite {
+    position: absolute;   /* Takes the image out of the normal flow so it doesn't affect the textbox */
+    left: -600px;              /* Positions the image to the leftmost side of the container */
+    top: 50%;             /* Centers the image vertically */
+    transform: translateY(-50%); /* Shifts the image up by half its height to ensure vertical centering */
+    max-width: 400px;     /* Adjust based on your preference */
+    height: auto; 
+    z-index: -1;
+}
