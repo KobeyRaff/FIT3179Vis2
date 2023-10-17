@@ -197,7 +197,7 @@ FH 4,1-Nov-22,13:41,"KSC,LC-39A",USSF-44 (Shepherd Demonstration & LDPE-2),GEO,"
 191,16-Dec-22,22:48,"CCSFS,SLC-40",O3b mPOWER 1&2,MEO,SES,Success,Success(drone ship),F9 B5  B1067.8,"~4,100kg (9,000lb)",4100.0
 192,17-Dec-22,21:32,"KSC,LC-39A",Starlink Group 4-37 (54satellites),LEO,SpaceX,Success,Success(drone ship),F9 B5  B1058.15,"~16,700kg (36,800lb)",16700.0
 193,28-Dec-22,9:34,"CCSFS,SLC-40",Starlink Group 5-1 (54satellites),LEO,SpaceX,Success,Success(drone ship),F9 B5  B1062.11,"~16,700kg (36,800lb)",16700.0
-194,30-Dec-22,7:38,"VSFB,SLC-4E",EROS-C3,Retrograde LEO,ImageSat International,Success,Success(ground pad),F9 B5  B1061.11,~400kg (880lb),400.0
+194,30-Dec-22,7:38,"VSFB,SLC-4E",EROS-C3,LEO,ImageSat International,Success,Success(ground pad),F9 B5  B1061.11,~400kg (880lb),400.0
 195,3-Jan-23,14:56,"CCSFS,SLC-40",Transporter-6: (114 payloads Smallsat Rideshare),SSO,Various,Success,Success(ground pad),F9 B5  B1060.15,Unknown,
 196,10-Jan-23,4:50,"CCSFS,SLC-40",OneWeb Flight #16 / SpaceX Flight 2 (40satellites),LEO,OneWeb,Success,Success(ground pad),F9 B5  B1076.2,"6,000kg (13,000lb)",6000.0
 FH 5,15-Jan-23,22:56,"KSC,LC-39A",USSF-67 (CBAS-2 & LDPE-3A),GEO,USSF,Success,No attempt,Falcon Heavy B5 B1070 (core),"~3,750kg (8,270lb)",3750.0
