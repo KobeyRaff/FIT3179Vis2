@@ -10,7 +10,7 @@ body {
     padding: 0;
     overflow-x: hidden;
     text-wrap: balance;
-    min-width: 2000px;
+    min-width: 2001px;
 }
 #space, .stars {
     overflow: hidden;
