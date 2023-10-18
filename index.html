@@ -18,7 +18,7 @@
     <div class="stars"></div>
   </div>
 
-  <div id = "title"><h1 style="text-align: center;">Reaching for the Stars: The Resurging Space Race</h1></div>
+  <div id = "title"><h1 style="text-align: center;">Reaching for the Stars: The Resurging Space Race</h1><h3 style="text-align: center;">A visualisation of the past, present and future of human space exploration and rocket launches</h3><br></div>
   <div class="parent-box">
   <div class="visualization-box stacked">
       <div class="item text-item" >
@@ -35,7 +35,7 @@
         </div>
       
   </div>
-  <div class="container">
+  <div class="image-container">
     <img src="CSS/sputnik.png" alt="Sputnik" class="satellite">
   </div>
   </div>
@@ -52,7 +52,7 @@
     <div class="visualization-box side-by-side">
       <div class="item text-item">
         <h3>New Powers Emerging</h3>
-        <p>Whilst the legacy space powers still maintain a strong presence, they have quickly been eclipsed by the up and comers, <mark class="China">China</mark> and <mark class="India">India</mark></p>
+        <p>Whilst the legacy space powers still maintain a strong presence, they have quickly been eclipsed by the up and comers, <mark class="China">China</mark> and <mark class="India">India</mark>. Access to space over time though shows a clear upward trend and it can be seen that in 2019, the spread of launches between countries is trending upwards.</p>
     </div>
       <div class="item"><div id="vis3"></div></div>
     </div>
@@ -76,6 +76,42 @@
       </div>
     </div>
   </div>
+  <div class="parent-box">
+    <div class="visualization-box stacked">
+      <div class="item text-item">
+        <h3>From Zero to Orbit: The Meteoric Ascent of SpaceX</h3>
+        <p>With humble beginnings and overcoming a shaky start, SpaceX has cemented themselves as one of the most successful space launch companies in recent years. Their Falcon 9 rocket has single-handedly lead to a resurgance in the space race, sparking what many consider to be tha advent of the commercial space race. One clear indicator of their success is analyzing their payload capacity over time, with the number of launches increasing, as well as their maximum payload capacity more than doubling since their first launch in 2012. On top of that, their Falcon Heavy rocket has allowed larger payloads to higher orbits than ever possible, claiming the crown as the most powerful rocket currently active in the world!</p>
+      </div>
+      <div class="item"><div id="vis7"></div></div>
+      
+    </div>
+  </div>
+  <div class="parent-box">
+    <div class="visualization-box side-by-side">
+      <div class="item text-item">
+        <h3>Revolution in Reuse</h3>
+        <p>They key to SpaceX's success has revolved around their ability to propulsively land, recover and reuse their boosters, the first company in the world to do so. This has allowed SpaceX to lower the price of each launch and become more competitive than legacy rocket launch companies such as ULA. SpaceX have become so successful at reusing boosters, they have reused multiple boosters over 15 times! One such booster, <mark class="booster1">B1060</mark>, flew for a total of 15 flights, completing 5 of these in as little as a 6 month timeframe. 
+        SpaceX have become so efficient at reusing boosters that for one flight on <mark class="booster2">B1073</mark>, they managed to refly the booster just 1 month after landing it. This development has allowed SpaceX to become the most cost effective rocket launch company in the world, with their Falcon 9 rocket costing just $62 million per launch, compared to the $350 million per launch of the Delta IV Heavy rocket.
+        </p>
+      </div>
+      <div class="item"><div id="vis8"></div></div>
+      <div class="image-container-2">
+        <img src="CSS/rocket.png" alt="Falcon 9 Rocket" class="rocket">
+      </div>
+    </div>
+  </div>
+  <div class="parent-box">
+    <div class="visualization-box side-by-side">
+      <div class="item"><div id="vis9"></div></div>
+      <div class="item text-item">
+        <h3>A Foundation for Success</h3>
+        <p>SpaceX's ability to launch, land and recover their rockets with almost 100% success sets them apart however the competition it has sparked sets the stage for a new space race, all in the hope of furthering Human's reach into space. <br><br>As we stand at the precipice of venturing beyond our home planet, aiming to explore and potentially colonize distant worlds, it's imperative to take a moment to trace the arc of our celestial journey. Our past, marked by the tension of the Cold War, became the catalyst for monumental achievements like the moon race. These early expeditions laid the groundwork, setting humanity on a trajectory that would redefine what's possible. Now, as we transition into the present, companies like SpaceX are not just continuing the legacy but revolutionizing it, marrying ambition with innovation. Their trailblazing efforts signify a pivotal moment in our cosmic saga, suggesting that our future, more than ever before, is studded with stars and infinite possibilities. As we move forward, the chronicles of our past serve as both a compass and inspiration, reminding us that the horizon of the final frontier is only just beginning to unfold.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="footer-box">
+    <p>Rocket Launch Data: https://www.kaggle.com/datasets/sefercanapaydn/mission-launches (This data is accurate up to July 2020), SpaceX Data: https://www.kaggle.com/datasets/heyrobin/space-x-launches-falcon9-and-falcon-heavy (This data is accurate up to April 2023), Sputnik Image:https://creazilla.com/nodes/64521-sputnik-clipart, Falcon 9 Image: https://www.ft.com/content/baf1278a-e88f-11e6-893c-082c54a7f539 </p>
+  </footer>
   <script>
     vegaEmbed("#vis1", "JS/timeserieslaunches2.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
     vegaEmbed("#vis2", "JS/mainmap.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
@@ -83,6 +119,9 @@
     vegaEmbed("#vis4", "JS/prices.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
     vegaEmbed("#vis5", "JS/success.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
     vegaEmbed("#vis6", "JS/popularrockets.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    vegaEmbed("#vis7", "JS/spacex.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    vegaEmbed("#vis8", "JS/reusability.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    vegaEmbed("#vis9", "JS/landingsuccess.vg.json", {mode: "vega-lite"}).then(console.log).catch(console.warn);
   </script>
 </body>
 </html>

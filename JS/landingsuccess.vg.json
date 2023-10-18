@@ -1,0 +1,75 @@
+{
+    "$schema" : "https://vega.github.io/schema/vega-lite/v5.json",
+    "width" : 800, "height" : 400,
+    "title": {
+        "text": "Landing Success",
+        "fontSize": 24,
+        "anchor": "middle",
+        "fontWeight": "bold",
+        "color": "#dfdfdf"
+      },
+    "data": {"url": "https://raw.githubusercontent.com/KobeyRaff/FIT3179Vis2/FinalAssignment/Data/cleaned_dataset.csv"},
+    "transform": [
+        {
+            "timeUnit" : "year",
+            "field" : "Date",
+            "as" : "Year" 
+        },
+        {
+            "calculate": "datum.Boosterlanding === 'Controlled(ocean)' ? 'No Attempt' : (datum.Boosterlanding === 'Failure (drone ship)' || datum.Boosterlanding === 'Failure(drone ship)' || datum.Boosterlanding === 'Failure(ground pad)' || datum.Boosterlanding === 'Failure(parachute)' || datum.Boosterlanding === 'Precluded(drone ship)' || datum.Boosterlanding === 'Uncontrolled(ocean)' ? 'Failure' : (datum.Boosterlanding === 'Success(drone ship)' || datum.Boosterlanding === 'Success(ground pad)' ? 'Success' : 'No Attempt'))",
+            "as": "MappedBoosterLanding"
+        },
+        {
+            "aggregate": [{"op": "count", "as": "count"}],
+            "groupby": ["Year", "MappedBoosterLanding"]
+
+        }
+
+    ],
+    "mark": {"type": "bar"},
+    "encoding": {
+      "x": {"field": "Year", "type": "nominal", "title": "Year", "timeUnit": "year",
+      "axis" : {
+        "title" : "Year",
+        "labelAngle": 0,
+        "labelFontSize": 14,
+        "titleFontSize": 16
+    
+        }
+    },
+      "y": {"field": "count", "type": "quantitative", "title": "Number of Launches",
+      "axis" : {
+        "title" : "Number of Launches",
+        "labelAngle": 0,
+        "labelFontSize": 14,
+        "titleFontSize": 16
+            }
+        },
+        "color": {"field": "MappedBoosterLanding", "type": "nominal", "title": "Booster Landing", "legend": {
+            "titleFontSize": 16,
+            "labelFontSize": 14,
+            "titleColor": "#dfdfdf",
+            "labelColor": "#dfdfdf",
+            "title": "Rocket Status"
+        },
+        "scale": {
+            "domain" : ["Success", "Failure", "No Attempt"],
+            "range": ["#5bc273", "#b02828", "#ffa321"]
+        }
+        },
+        "tooltip": [
+            {"field": "Year", "type": "temporal", "title": "Year", "timeUnit": "year"},
+            {"field": "count", "type": "quantitative", "title": "Number of Launches"},
+            {"field": "MappedBoosterLanding", "type": "nominal", "title": "Booster Landing"}
+        ]
+    }, 
+
+    "config": {
+        "background": "#1b1b1b",
+        "axis": {
+            "labelColor": "#adadad",
+            "titleColor": "#adadad",
+            "gridColor": "#636363"
+        }
+    }
+  }

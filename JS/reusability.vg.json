@@ -1,0 +1,156 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "https://raw.githubusercontent.com/KobeyRaff/FIT3179Vis2/FinalAssignment/Data/cleaned_dataset.csv"}, 
+    "vconcat": [
+        {
+            "title": {
+                "text": "Top 10 Boosters by Number of Flights",
+                "fontSize": 24,
+                "anchor": "middle",
+                "fontWeight": "bold",
+                "color": "#dfdfdf"
+              },
+            "width": 400,
+            "height": 400,
+            "transform": [
+                {"aggregate": [
+                    {"op": "count", "field": "Date", "as": "NumberOfFlights"}
+                  ],
+                  "groupby": ["BoosterID"]
+                },
+                {"window": [{"op": "row_number", "as": "rank"}], "frame": [null, null],"sort": [{"field": "NumberOfFlights", "order": "descending"}]},
+                {"filter": "(datum.rank <= 10)"}
+            ],
+            "layer": [{
+                "mark": {"type": "arc", "innerRadius": 50,"cursor": "pointer", "stroke": "#000000", "strokeWidth": 0.5},
+                "params": [
+                    {
+                      "name": "selectedBooster",
+                      "value": "B1058",
+                      "select": {"type": "point", "fields": ["BoosterID"], "on": "click", "clear": false, "nearest": false},
+                      "bind": "legend"
+                    }
+                  ],
+                  "encoding": {"strokeWidth": {
+                    "condition": [
+                      {
+                        "param": "selectedBooster",
+                        "empty": false,
+                        "value": 2
+                      }
+                    ],
+                    "value": 0
+                  }}
+              },{
+                "mark": {"type": "text", "radiusOffset": 30},
+                "encoding": {
+                  "text": {"field": "BoosterID", "type": "ordinal"}
+                }
+              },
+              {
+                "mark": {"type": "text", "radiusOffset": -30},
+                "encoding": {
+                  "text": {"field": "NumberOfFlights", "type": "ordinal" }, "color": {"value": "black"}
+                }
+              }],
+            "encoding": {
+                "theta": {"field": "BoosterID", "type": "ordinal","stack": true},
+                "radius": {"field": "NumberOfFlights", "type": "quantitative","scale": {"type": "sqrt", "zero": true, "range": [10, 150]}},
+                "color" : {"field": "BoosterID", "type": "nominal", "legend": {
+                    "titleFontSize": 16,
+                    "labelFontSize": 14,
+                    "titleColor": "#dfdfdf",
+                    "labelColor": "#dfdfdf",
+                    "title": "Booster ID",
+                    "offset" : -60
+                    }, 
+                    "scale": {"scheme": "set3"}}
+            }
+        },
+        {
+            "title": {
+                "text": "Selected Booster Flight History",
+                "fontSize": 24,
+                "anchor": "middle",
+                "fontWeight": "bold",
+                "color": "#dfdfdf"
+
+              },
+            "width": 600,
+            "height": 400,
+            "layer" : [
+                {
+                    "mark": {"type": "point", "filled": true, "size": 100},
+                    "transform": [
+                        {
+                            "filter": {"param": "selectedBooster"}
+                        }
+                    ],
+                    "encoding": {
+                      "x": {"field": "Date", "type": "temporal", "axis" : {
+                        "title" : "Date",
+                        "labelAngle": 0,
+                        "labelFontSize": 14,
+                        "titleFontSize": 16
+                        }
+                        },
+                      "y": {"field": "FlightNumber", "type": "quantitative","axis" : {
+                        "title" : "Flight Number",
+                        "labelAngle": 0,
+                        "labelFontSize": 14,
+                        "titleFontSize": 16,
+                        "tickMinStep": 1
+                        }
+                    },"tooltip" : [
+                        {"field": "FlightNumber", "type": "quantitative", "title": "Flight Number"},
+                        {"field": "Date", "type": "temporal"},
+                        {"field": "BoosterID", "type": "nominal"},
+                        {"field": "Payload", "type": "nominal"}
+                    
+                    ],
+                    "color": {"field": "BoosterID","type": "nominal","scale": {"scheme": "set3"}}
+                    }
+                  },{
+                    "mark": "line",
+                    "transform": [
+                        {
+                            "filter": {"param": "selectedBooster", "empty": false}
+                        }
+                    ],
+                    "encoding": {
+                      "x": {"field": "Date", "type": "temporal", "axis" : {
+                        "title" : "Date",
+                        "labelAngle": 0,
+                        "labelFontSize": 14,
+                        "titleFontSize": 16
+                        }
+                        },
+                      "y": {"field": "FlightNumber", "type": "quantitative","axis" : {
+                        "title" : "Flight Number",
+                        "labelAngle": 0,
+                        "labelFontSize": 14,
+                        "titleFontSize": 16,
+                        "tickMinStep": 1
+                        }
+                    },
+                    "color": {"field": "BoosterID","type": "nominal","scale": {"scheme": "set3"}}
+                    }
+                  }
+                  
+                
+            ]
+        }
+            
+    ],
+    
+    "config": {
+        "background": "#1b1b1b",
+        "axis": {
+            "titleColor": "#dfdfdf",
+            "labelColor": "#dfdfdf",
+            "gridColor": "#636363"
+        }
+    }
+  }
+  

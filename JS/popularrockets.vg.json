@@ -90,7 +90,7 @@
         },
         "tooltip": [
             {"field": "Rocket Name/Model", "type": "nominal"},
-            {"field": "count", "type": "quantitative"}
+            {"field": "count", "type": "quantitative", "title": "Number of Launches"}
         ]
     },
     "config": {
