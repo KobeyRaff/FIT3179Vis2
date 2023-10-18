@@ -50,7 +50,7 @@
             "labelFontSize": 14,
             "titleColor": "#dfdfdf",
             "labelColor": "#dfdfdf",
-            "title": "Rocket Status"
+            "title": "Landing Status"
         },
         "scale": {
             "domain" : ["Success", "Failure", "No Attempt"],
