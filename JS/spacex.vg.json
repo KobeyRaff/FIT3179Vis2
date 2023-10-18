@@ -12,14 +12,31 @@
     "params": [
       {
         "name": "targetOrbit",
-        "value": "LEO",
-        "select": {"type": "point", "fields": ["Orbit", "Date"], "on": "click", "nearest": true},
-        "bind": "legend"
+        "value": "All",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "All",
+                    "GEO",
+                    "GTO",
+                    "Heliocentric",
+                    "L1",
+                    "LEO",
+                    "Lunar",
+                    "MEO",
+                    "SSO",
+                    "Sub-orbital"
+                ],
+                "name": "Filter by Target Orbit:"
+            }
       }
     ],
     "transform": [
         {
             "filter" : "datum.CleanMass > 0"
+        },
+        {
+            "filter": "targetOrbit == 'All' || datum.Orbit == targetOrbit"
         }
     ],
     "mark": {"type": "circle", "tooltip": true, "size": 100, "opacity": 1},

@@ -1,6 +1,6 @@
 {
     "$schema" : "https://vega.github.io/schema/vega-lite/v5.json",
-    "width" : 1200, "height" : 800,
+    "width" : 1000, "height" : 800,
     "title": {
         "text": "Major Space Launches by Country",
         "fontSize": 24,
